@@ -4,7 +4,8 @@
 ## Sub-Heading
 - 
 ## Summary
-- 
+- Simplify the grading process, get deeper insights into day-to-day assessments, and improve student outcomes with end-to-end communication for a better understanding of what students are achieving in the classroom. Connect students, teachers, administrators, and parents with the shared goal of improving student outcomes. This is a technology that helps educators and students realize their full potential in their way.
+
 ## Problem
 - This product allows teachers and students to keep track of grades. This problem is experienced by all grade-keeping schools. We intend to simplify the experience for both parties because grades are important as they keep students updated on their performance. 
 ## Solution
