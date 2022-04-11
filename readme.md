@@ -2,7 +2,7 @@
 - Gradebook is a grade keeping app that allows staff and teachers to create, update, and delete student grades. The staff login allows for these operations while student logins only display their grades. Staff/admins have their own log in and students have their own.
 
 ## Sub-Heading
-- 
+- The Gradebook for teachers, students and parents to keep track of student grades and report progress to parents.
 ## Summary
 - Simplify the grading process, get deeper insights into day-to-day assessments, and improve student outcomes with end-to-end communication for a better understanding of what students are achieving in the classroom. Connect students, teachers, administrators, and parents with the shared goal of improving student outcomes. This is a technology that helps educators and students realize their full potential in their way.
 
