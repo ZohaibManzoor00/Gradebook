@@ -1,6 +1,7 @@
 const express = require('express');
 // const todosRouter = require('./controller/gradeBookController');
-const cors = require('cors')
+const cors = require('cors');
+const { response } = require('express');
 
 const app = express();
 
@@ -9,6 +10,11 @@ const PORT = process.env.PORT || 3031
 app.use(cors())
 app.use(express.json())
 // app.use(todosRouter)
+
+// app.get('/student/:id/grades', (req, res) => {
+//     res.status(200).send('Get Route Working')
+//     // get student grade
+// })
 
 app.get('/', (req, res) => {
     res.status(200).send('Get Route Working')
