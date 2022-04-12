@@ -10,12 +10,89 @@
 </head>
 
 <body>
+    <h2 class="welcome">Welcome Teacher</h2>
     <div id="app">
         <div id="grade">
             <div id="grade-display">100</div>
             <input id="grade-input" class="hidden" value="100" type="number" id="example" />
             <div class="hidden" id="loading-indicatory"></div>
         </div>
+    </div>
+    <div id="table-holder">
+        <table>
+            <tr class="title" id="column-title">
+                <th></th>
+                <th>Chapter 1 HW</th>
+                <th>Chapter 1 Quiz</th>
+                <th>Chapter 2 HW</th>
+                <th>Chapter 2 Quiz</th>
+            </tr>
+            <tr class="main">
+                <td>Subject</td>
+                <td>History</td>
+                <td>History</td>
+                <td>Science</td>
+                <td>Science</td>
+            </tr>
+            <tr class="main">
+                <td>Category</td>
+                <td>Homework</td>
+                <td>Quiz</td>
+                <td>Homework</td>
+                <td>Quiz</td>
+            </tr>
+            <tr class="main">
+                <td>Start Date</td>
+                <td>09/08/2021</td>
+                <td>09/10/2021</td>
+                <td>09/11/2021</td>
+                <td>09/12/2021</td>
+            </tr>
+            <tr class="main">
+                <td>Due Date</td>
+                <td>09/09/2021</td>
+                <td>09/11/2021</td>
+                <td>09/12/2021</td>
+                <td>09/13/2021</td>
+            </tr>
+            <tr class="main">
+                <td>Total Points</td>
+                <td>20</td>
+                <td>50</td>
+                <td>100</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>Peter Parker</td>
+                <td>17/20</td>
+                <td>40/50</td>
+                <td>80/100</td>
+                <td>18/20</td>
+            </tr>
+            <tr>
+                <td>Mary Jane</td>
+                <td>15/20</td>
+                <td>45/50</td>
+                <td>70/100</td>
+                <td>15/20</td>
+            </tr>
+            <tr>
+                <td>Jake Statefarm</td>
+                <td>19/20</td>
+                <td>48/50</td>
+                <td>88/100</td>
+                <td>17/20</td>
+            </tr>
+
+            <div class="btn">
+                <button type="submit" id="add-column-btn">Add New Column</button>
+                <form>
+                    <input type="text" id="col-name" placeholder="Column name...">
+                </form>
+            </div>
+
+
+        </table>
     </div>
     <script src="practice.js"></script>
 </body>

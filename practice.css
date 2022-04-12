@@ -5,3 +5,52 @@
 .show {
     display: none;
 }
+
+
+
+
+* {
+    font-family: 'Lato';
+}
+
+.welcome {
+    margin: 40px;
+    font-size: 40px;
+}
+
+/* #grade-display {
+
+} */
+
+table,
+th,
+td {
+  border-collapse: collapse;
+  font-family: "Lato";
+  padding: 10px;
+}
+
+tr,
+td,
+th {
+  border: 01px solid rgb(0, 0, 0);
+}
+
+.title,
+.main {
+  background-color: rgb(189, 173, 233);
+}
+
+.title {
+  background-color: rgb(233, 173, 173);
+}
+
+table {
+    margin: 40px;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

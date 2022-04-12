@@ -25,3 +25,22 @@ grade.addEventListener('click', (e) => {
     }
     gradeInput.addEventListener('blur', saveInput)
 })
+
+// Form
+const input = document.getElementById('col-name')
+// Form
+
+const tableTitle = document.getElementById('column-title')
+const addColumnBtn = document.getElementById('add-column-btn')
+
+addColumnBtn.addEventListener('click', e => {
+    e.preventDefault()
+    const newTableHeader = document.createElement('th')
+    // Practice Stuff
+    const newTableData = document.createElement('td')
+    // Practice Stuff
+
+    newTableHeader.innerHTML = input.value
+    tableTitle.appendChild(newTableHeader)
+    
+})

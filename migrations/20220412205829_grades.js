@@ -4,9 +4,11 @@
  */
 exports.up = function(knex) {
     return knex.schema.createTable('grades', table => {
-        table.increments('id');
-        table.string('student_id');
-        table.string('assignment_id');
+        // Prevent duplicate data
+        table.primary(['student_id', 'assignment_id'])
+        table.string('student_id').notNullable()
+        table.string('assignment_id').notNullable()
+        table.integer('grade').notNullable()
     })
 };
 
