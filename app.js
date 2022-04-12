@@ -1,5 +1,5 @@
 const express = require('express');
-const todosRouter = require('./routes/gradeBookRouter');
+const todosRouter = require('./controller/gradeBookController');
 
 const app = express();
 
