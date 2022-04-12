@@ -1,0 +1,27 @@
+{
+  "name": "gradebook",
+  "version": "1.0.0",
+  "description": "- Gradebook is a grade keeping app that allows staff and teachers to create, update, and delete student grades. The staff login allows for these operations while student logins only display their grades. Staff/admins have their own log in and students have their own.",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZohaibManzoor00/Gradebook.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZohaibManzoor00/Gradebook/issues"
+  },
+  "homepage": "https://github.com/ZohaibManzoor00/Gradebook#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
