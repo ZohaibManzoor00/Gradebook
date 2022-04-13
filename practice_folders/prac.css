@@ -12,7 +12,7 @@ body {
 }
 
 .card-body {
-    width: 1200px;
+    width: 1500px;
 }
 
 .table-holder {
@@ -23,6 +23,10 @@ body {
 
 .welcome {
     margin-top: 40px;
-    margin-left: 30px;
+    margin-left: 50px;
     font-weight: 700;
+}
+
+.form-control {
+    width: 100px !important;
 }
