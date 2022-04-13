@@ -62,7 +62,7 @@ $(function () {
         cols += '<td><input class="form-control rounded-0" type="text" name="lastname" placeholder="Last name"></td>';
         cols += '<td><input class="form-control rounded-0" type="text" name="@" placeholder="@"></td>';
         cols += '<td><input class="form-control rounded-0" type="text" name="subjectname" placeholder="Subject"></td>';
-        cols += '<td><input class="form-control rounded-0" type="text" name="chaptername" placeholder="Chapter Name"></td>';
+        cols += '<td><input class="form-control rounded-0" type="text" name="assignmentname" placeholder="Chapter Name"></td>';
         cols += '<td><input class="form-control rounded-0" type="text" name="category" placeholder="Category"></td>';
         cols += '<td><input class="form-control rounded-0" type="text" name="startdate" placeholder="MM/DD/YYYY"></td>';
         cols += '<td><input class="form-control rounded-0" type="text" name="firstname" placeholder="First name"></td>';
