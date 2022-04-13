@@ -57,19 +57,20 @@ $(function () {
         let cols = '';
 
         // Table columns
-        cols += '<th scrope="row">' + counter + '</th>';
+        cols += '<th scope="row">' + counter + '</th>';
         cols += '<td><input class="form-control rounded-0" type="text" name="firstname" placeholder="First name"></td>';
         cols += '<td><input class="form-control rounded-0" type="text" name="lastname" placeholder="Last name"></td>';
         cols += '<td><input class="form-control rounded-0" type="text" name="@" placeholder="@"></td>';
         cols += '<td><input class="form-control rounded-0" type="text" name="subjectname" placeholder="Subject"></td>';
-        cols += '<td><input class="form-control rounded-0" type="text" name="assignmentname" placeholder="Chapter Name"></td>';
+        cols += '<td><input class="form-control rounded-0" type="text" name="chaptername" placeholder="Assignment Name"></td>';
         cols += '<td><input class="form-control rounded-0" type="text" name="category" placeholder="Category"></td>';
         cols += '<td><input class="form-control rounded-0" type="text" name="startdate" placeholder="MM/DD/YYYY"></td>';
-        cols += '<td><input class="form-control rounded-0" type="text" name="firstname" placeholder="First name"></td>';
-        cols += '<td><input class="form-control rounded-0" type="text" name="firstname" placeholder="First name"></td>';
-        cols += '<td><input class="form-control rounded-0" type="text" name="firstname" placeholder="First name"></td>';
+        cols += '<td><input class="form-control rounded-0" type="text" name="firstname" placeholder="MM/DD/YYYY"></td>';
+        cols += '<td><input class="form-control rounded-0" type="text" name="firstname" placeholder="Total Points"></td>';
+        cols += '<td><input class="form-control rounded-0" type="text" name="firstname" placeholder="Score"></td>';
         cols += '<td><button class="btn btn-danger rounded-0" id ="deleteRow"><i class="fa fa-trash"></i></button</td>';
 
+        
         // Insert the columns inside a row
         newRow.append(cols);
 
