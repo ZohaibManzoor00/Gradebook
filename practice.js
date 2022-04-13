@@ -29,6 +29,7 @@ grade.addEventListener('click', (e) => {
 // Form
 const input = document.getElementById('col-name')
 // Form
+const tRow = document.getElementById('table-row')
 
 const tableTitle = document.getElementById('column-title')
 const addColumnBtn = document.getElementById('add-column-btn')
@@ -37,10 +38,10 @@ addColumnBtn.addEventListener('click', e => {
     e.preventDefault()
     const newTableHeader = document.createElement('th')
     // Practice Stuff
-    const newTableData = document.createElement('td')
+    //const newTableData = document.createElement('tr')
     // Practice Stuff
 
     newTableHeader.innerHTML = input.value
     tableTitle.appendChild(newTableHeader)
-    
+    newTableHeader.appendChild(tRow)
 })
