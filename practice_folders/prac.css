@@ -10,3 +10,19 @@ body {
     font-size: 0.85rem;
     color: #aaa;
 }
+
+.card-body {
+    width: 1200px;
+}
+
+.table-holder {
+    display: flex;
+    justify-content: center;
+    Margin-top: 40px;
+}
+
+.welcome {
+    margin-top: 40px;
+    margin-left: 30px;
+    font-weight: 700;
+}
