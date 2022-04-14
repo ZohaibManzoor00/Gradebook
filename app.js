@@ -2,6 +2,8 @@ const express = require('express');
 // const todosRouter = require('./controller/gradeBookController');
 const cors = require('cors');
 const { response } = require('express');
+const db = require('./db/db')
+
 
 const app = express();
 
@@ -16,8 +18,9 @@ app.use(express.json())
 //     // get student grade
 // })
 
-app.get('/', (req, res) => {
-    res.status(200).send('Get Route Working')
+app.get('/', async (req, res) => {
+   const query = await db.select().from('assignments').orderBy('start_date')
+   res.send(query)
 })
 
 app.get('/:id', (req, res) => {
@@ -26,7 +29,7 @@ app.get('/:id', (req, res) => {
 }) 
 
 app.post('/', (req, res) => {
-
+    
 })
 
 app.put('/:id', (req, res) => {
