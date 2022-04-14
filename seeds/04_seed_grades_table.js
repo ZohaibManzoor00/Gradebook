@@ -13,8 +13,6 @@ exports.seed = async function(knex) {
     return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
   }
   
-  console.log(students)
-  console.log(assignments)
   const grades = []
   students.forEach(student => {
     assignments.forEach(assignment => {

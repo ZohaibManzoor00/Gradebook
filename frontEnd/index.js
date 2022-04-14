@@ -1,4 +1,10 @@
 const form = document.getElementById("form");
+fetch('http://localhost:3031/').then(res => res.json())
+.then(data => {
+    data.forEach(cell => {
+        renderGrades(cell.subject, cell.assignment_name, cell.grade, cell.start_date.substring(5, 10), cell.due_date.substring(5, 10))
+    })
+})
 
 form.addEventListener("submit", e => {
     e.preventDefault();
