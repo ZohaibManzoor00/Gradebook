@@ -1,0 +1,151 @@
+main {
+    padding-top: 5%;
+  }
+  
+  .box-1 {
+    padding-top: 10%;
+  }
+  
+  .reverse {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  
+  .side {
+    background-color: #dad6ec;
+    font-size: 1.3em;
+    width: 100%;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 0%;
+    padding-bottom: 2%;
+  }
+  .side h2 {
+    text-align: center;
+  }
+  
+  .bold {
+    font-weight: 600;
+  }
+  
+  .box-1 * {
+    line-height: 2;
+  }
+  
+  .facts {
+    height: 400px;
+  }
+  
+  .facts h1 {
+    font-size: 50px;
+  
+  }
+  
+  .video {
+    height: 300px;
+  
+  }
+  
+  iframe {
+    width: 100%;
+    height: 100%;
+    ;
+  }
+  
+  footer .col-12 {
+    display: flex;
+    justify-content: center;
+    
+  }
+  
+  footer a {
+    text-decoration: none;
+  }
+  
+.pt-5, .py-5 {
+    padding-top: 0.5rem!important;
+}
+  
+  /*Media Queries*/
+  
+  @media only screen and (min-width: 375px) {
+    .row p {
+      text-align: center;
+    }
+    footer .col {
+      display: flex;
+      justify-content: center;
+    }
+    .addMargin {
+      margin-bottom: 7%;
+    }
+    main .col-12 h2 {
+      line-height: 1.5;
+    }
+  }
+  
+  
+  
+  @media only screen and (min-width: 768px) {
+    main {
+      padding-top: 5%;
+    }
+    .box-1 * {
+      line-height: 1.5;
+    }
+    .box-1 img {
+      height: 100%;
+    }
+    .video {
+      height: 350px;
+  
+    }
+    .facts {
+      margin-top: 2%;
+    }
+    .box-1 p {
+      text-align: start;
+    }
+    footer .col-12 {
+      justify-content: end;
+    }
+    main .col-12 h2 {
+      line-height: 1.2;
+    }
+  }
+  
+  @media only screen and (min-width: 1200px) {
+    main {
+      padding-top: 5%;
+    }
+  }
+  
+  @media only screen and (min-width: 1400px) {
+    main {
+      padding-top: 5%;
+    }
+    main .col-12 h2 {
+      line-height: 1.5;
+    }
+  }
+  
+  @media only screen and (min-width: 1800px) {
+    main {
+      padding-top: 5%;
+    }
+    .video {
+      height: 600px;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      ;
+    }
+    .box-1 {
+      padding-top: 5%;
+    }
+    .facts {
+      margin-top: 5%;
+    }
+  
+  }
