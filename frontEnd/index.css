@@ -1,0 +1,14 @@
+body {
+    font-family: "Lato";
+  }
+  
+  table,
+  th,
+  td {
+    border: 1px solid #ddd;
+  }
+  
+  table {
+      margin-top: 40px;
+      margin-left: 40px;
+  }
