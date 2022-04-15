@@ -1,16 +1,25 @@
 body {
   font-family: "Lato";
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    rgba(222, 226, 230, 1) 0%,
+    rgba(173, 181, 189, 1) 100%
+  );
 }
+
+
 
 table,
 th,
 td {
-  border: 1px solid #ddd;
+  border: 1px solid rgb(0, 0, 0);
+  border-collapse: collapse;
 }
 
 table {
-  margin-top: 40px;
   margin-left: 40px;
+  margin-top: 20px;
 }
 
 th,
@@ -21,5 +30,90 @@ td {
 }
 
 #form {
-    padding-left: 40px;
+  padding-left: 40px;
 }
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#deleteBtn,
+#myBtn {
+  margin-top: 20px;
+  margin-left: 40px;
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #000000;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #d0d5da;
+  text-align: center;
+  transition: all 0.2s;
+  cursor: pointer;
+  background-color: #000000;
+}
+
+#deleteBtn:hover {
+  color: #000000;
+  background-color: #d0d5da;
+}
+
+
+#myBtn:hover {
+  color: #000000;
+  background-color: #d0d5da;
+}
+@media all and (max-width: 30em) {
+  a.button1 {
+    display: block;
+    margin: 0.4em auto;
+  }
+}
+
+.welcome {
+  margin-top: 50px;
+  margin-left: 40px;
+  font-family: 'Lato';
+}
+
+th {
+  color: #743034
+}
+
+
