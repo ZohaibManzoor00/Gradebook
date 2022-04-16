@@ -30,14 +30,14 @@ app.get('/students', async (req, res) => {
     res.json(query)
 })
 
-app.get('/grades', async(req, res) => {
-    const query = await db.select('grades.*').from('assignments').join('grades', 'grades.assignment_id','=','assignments.id')
-    .join('students', 'students.id', '=', 'grades.student_id').orderBy([{ column: 'start_date'}, { column: 'students.first_name'}])
+app.get('/grades', async (req, res) => {
+    const query = await db.select('grades.*').from('assignments').join('grades', 'grades.assignment_id', '=', 'assignments.id')
+        .join('students', 'students.id', '=', 'grades.student_id').orderBy([{ column: 'start_date' }, { column: 'students.first_name' }])
     res.json(query)
 })
 
 app.post('/', async (req, res) => {
-    const { subject, name, grade, startDate, dueDate} = req.body
+    const { subject, name, grade, startDate, dueDate } = req.body
     const query = await db('assignments').insert({
         subject,
         assignment_name: name,
@@ -52,8 +52,15 @@ app.post('/', async (req, res) => {
     // values ('History', 'Unit 2 Quiz', 100,'2022-01-15', '2022-01-16')
 })
 
-app.put('/:id', (req, res) => {
-
+app.put('/grades/:id', async (req, res) => {
+    const newGrade = req.body.newGrade
+    const gradeId = req.params.id
+    const query = await db('grades').update({
+        grade: newGrade
+    }).where({ id: gradeId }).returning([
+        'id', 'student_id', 'assignment_id', 'grade'
+    ])
+    res.json(query)
 })
 
 app.delete('/', async (req, res) => {

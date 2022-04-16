@@ -1,6 +1,7 @@
 const form = document.getElementById("form");
 let numberOfStudents;
-// Render Columns
+
+// -------------Render Columns-------------
 fetch('http://localhost:3031/').then(res => res.json())
     .then(data => {
         data.forEach(cell => {
@@ -8,31 +9,120 @@ fetch('http://localhost:3031/').then(res => res.json())
         })
     })
 
-// Render students names
+
+// -------------Render Students Names-------------
 fetch('http://localhost:3031/students').then(res => res.json())
     .then(data => {
         numberOfStudents = data.length
         data.forEach(student => {
-            // student.first_name.classList.add('students')
             renderStudents(student.first_name, student.last_name)
         })
     })
 
-// Render Students Grades
+
+// -------------Render Students Grades-------------
 fetch('http://localhost:3031/grades').then(res => res.json())
     .then(data => {
         const tableChildren = document.getElementById('table-body').children
         let pointer = 5
-        data.forEach(grade => {
+        data.forEach((grade, index) => {
+            // grade.innerHTML = 
             const newEntry = document.createElement('td')
-            newEntry.dataset.assignmentId = grade.assignment_id
-            console.log(grade)
-            newEntry.innerText = grade.grade
+            newEntry.dataset.id = grade.id
+            newEntry.innerHTML = `
+            <div id="grade${index}" data-grade="100">
+                <div id="grade-display${index}">${grade.grade}</div>
+                <input id="grade-input${index}" class="hidden" value=${grade.grade} type="text"/>
+                <div class="hidden" id="loading-indicator${index}"></div>
+            </div>
+            `
+            newEntry.addEventListener('click', e => {
+                // console.log(e.target.dataset.assignmentId)
+                // console.log('Clicked')
+                const element = e.target;
+
+                const gradeInput = document.getElementById(`grade-input${index}`);
+                const gradeDisplay = document.getElementById(`grade-display${index}`);
+
+                const input = document.getElementById(`grade-input${index}`)
+                input.style.width = '50px'
+                input.style.fontSize = '14px'
+                
+                gradeDisplay.className = "hidden";
+                gradeInput.className = "show";
+
+                if (gradeInput) {
+                    gradeInput.focus();
+                }
+
+                function saveInput(event) {
+                    const value = event.target.value;
+                    gradeInput.className = "hidden";
+                    const loadingIndicator = document.getElementById(`loading-indicator${index}`);
+                    loadingIndicator.className = "show";
+                    loadingIndicator.innerText = "Loading";
+
+                    const id = Number(event.target.id.split('grade-input')[1]) + 1
+
+                    if (value) {
+                        fetch(`http://localhost:3031/grades/${id}`, {
+                            method: 'PUT',
+                            body: JSON.stringify({
+                                newGrade: value
+                            }),
+                            headers: {
+                                "Content-type": "application/json"
+                            }
+                        }).then(res => res.json()).then(data => returned = data)
+                    }
+
+                    setTimeout(() => {
+                        loadingIndicator.className = "hidden";
+                        gradeDisplay.className = "show";
+                        gradeDisplay.innerText = value;
+                        gradeInput.removeEventListener("blur", saveInput);
+                    }, 300);
+                }
+                gradeInput.addEventListener('blur', saveInput)
+            })
             tableChildren[pointer].appendChild(newEntry)
             pointer++
             if (pointer === 5 + numberOfStudents) pointer = 5
         })
     })
+
+// ----------------------- 
+// grade.addEventListener("click", (e) => {
+//     const element = e.target;
+//     const gradeInput = document.getElementById("grade-input");
+//     const gradeDisplay = document.getElementById("grade-display");
+
+//     gradeDisplay.className = "hidden";
+//     gradeInput.className = "show";
+
+//     if (gradeInput) {
+//         gradeInput.focus();
+//     }
+
+//     function saveInput(event) {
+//         const value = event.target.value;
+//         gradeInput.className = "hidden";
+//         const loadingIndicator = document.getElementById("loading-indicator");
+//         loadingIndicator.className = "show";
+//         loadingIndicator.innerText = "Loading";
+
+//         setTimeout(() => {
+//             loadingIndicator.className = "hidden";
+//             gradeDisplay.className = "show";
+//             gradeDisplay.innerText = value;
+//             gradeInput.removeEventListener("blur", saveInput);
+//         }, 600);
+//     }
+
+//     gradeInput.addEventListener('blur', saveInput)
+// });
+// -----------------------
+
 
 // fetch('http://localhost:3031/grades', {
 //     method: 'DELETE'
@@ -115,28 +205,60 @@ function renderGrades(subject, name, grade, startDate, dueDate, id) {
     totalPointsDiv.appendChild(totalPointsChild);
 }
 
-// Get the modal
+// ------------Assignment Modal------------
 let modal = document.getElementById("myModal");
-// Get the button that opens the modal
 let btn = document.getElementById("myBtn");
-// Get the <span> element that closes the modal
 let span = document.getElementsByClassName("close")[0];
-// When the user clicks on the button, open the modal
+
 btn.onclick = function () {
     modal.style.display = "block";
 }
-// When the user clicks on <span> (x), close the modal
+
 span.onclick = function () {
     modal.style.display = "none";
 }
-// When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
-} 
+}
+// ------------Assignment Modal------------
 
-/* 
+
+
+// ------------Delete Modal------------
+const modal2 = document.getElementById('delete-modal')
+const btn2 = document.getElementById('deleteBtn')
+const span2 = document.getElementsByClassName("close")[0];
+
+btn2.onclick = function () {
+    modal2.style.display = "block";
+}
+
+span2.onclick = function () {
+    modal2.style.display = "none";
+}
+
+window.onclick = function (event) {
+    if (event.target == modal2) {
+        modal2.style.display = "none";
+    }
+}
+// ------------Delete Modal------------
+
+
+/*
 const els = document.querySelectorAll('[data-assignment-id="50"]')
 els[0].remove()
 */
+
+
+const editBtn = document.getElementById('edit')
+const editArea = document.getElementById('edit-prompt')
+editBtn.addEventListener('click', e => {
+    const h2 = document.createElement('h2')
+    h2.innerText = 'Select Cell to Update Grade'
+    h2.style.display = 'flex'
+    h2.style.justifyContent = 'center'
+    editArea.appendChild(h2)
+}, {once:true})

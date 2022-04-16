@@ -70,6 +70,7 @@ td {
   cursor: pointer;
 }
 
+#edit,
 #deleteBtn,
 #myBtn {
   margin-top: 20px;
@@ -89,11 +90,15 @@ td {
   background-color: #000000;
 }
 
-#deleteBtn:hover {
+#edit:hover {
   color: #000000;
   background-color: #d0d5da;
 }
 
+#deleteBtn:hover {
+  color: #000000;
+  background-color: #d0d5da;
+}
 
 #myBtn:hover {
   color: #000000;
@@ -116,4 +121,15 @@ th {
   color: #743034
 }
 
+.hidden {
+  display:none
+}
+
+.show {
+  display: inline-block;
+}
+
+#grade-input {
+  width: 50px;
+}
 
