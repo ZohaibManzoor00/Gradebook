@@ -1,5 +1,6 @@
 const form = document.getElementById("form");
 let numberOfStudents;
+// Render Columns
 fetch('http://localhost:3031/').then(res => res.json())
     .then(data => {
         data.forEach(cell => {
@@ -7,6 +8,7 @@ fetch('http://localhost:3031/').then(res => res.json())
         })
     })
 
+// Render students names
 fetch('http://localhost:3031/students').then(res => res.json())
     .then(data => {
         numberOfStudents = data.length
@@ -16,12 +18,15 @@ fetch('http://localhost:3031/students').then(res => res.json())
         })
     })
 
+// Render Students Grades
 fetch('http://localhost:3031/grades').then(res => res.json())
     .then(data => {
         const tableChildren = document.getElementById('table-body').children
         let pointer = 5
         data.forEach(grade => {
             const newEntry = document.createElement('td')
+            newEntry.dataset.assignmentId = grade.assignment_id
+            console.log(grade)
             newEntry.innerText = grade.grade
             tableChildren[pointer].appendChild(newEntry)
             pointer++
@@ -131,3 +136,7 @@ window.onclick = function (event) {
     }
 } 
 
+/* 
+const els = document.querySelectorAll('[data-assignment-id="50"]')
+els[0].remove()
+*/

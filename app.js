@@ -31,7 +31,7 @@ app.get('/students', async (req, res) => {
 })
 
 app.get('/grades', async(req, res) => {
-    const query = await db.select('grades.grade').from('assignments').join('grades', 'grades.assignment_id','=','assignments.id')
+    const query = await db.select('grades.*').from('assignments').join('grades', 'grades.assignment_id','=','assignments.id')
     .join('students', 'students.id', '=', 'grades.student_id').orderBy([{ column: 'start_date'}, { column: 'students.first_name'}])
     res.json(query)
 })
