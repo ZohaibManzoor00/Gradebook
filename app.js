@@ -52,11 +52,24 @@ app.post('/', async (req, res) => {
 
 app.put('/grades', async (req, res) => {
     const newGrade = req.body.newGrade
-    const {studentId, assignmentId} = req.body;
+    const { studentId, assignmentId } = req.body;
     const query = await db('grades').update({
         grade: newGrade
-    }).where({ student_id: studentId, assignment_id:assignmentId }).returning([
+    }).where({ student_id: studentId, assignment_id: assignmentId }).returning([
         'id', 'student_id', 'assignment_id', 'grade'
+    ])
+    res.json(query)
+})
+
+app.post('/grades', async (req, res) => {
+    const { studentFullName } = req.body
+    const query = await db('students').insert({
+        first_name: studentFullName, 
+        last_name: '',
+        email: '',
+        grade: 0
+    }).returning([
+        'id', 'first_name', 'last_name', 'email', 'grade' 
     ])
     res.json(query)
 })
