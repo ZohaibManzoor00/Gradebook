@@ -25,19 +25,20 @@ fetch('http://localhost:3031/grades').then(res => res.json())
         let pointer = 5
         data.forEach((grade, index) => {
             const newEntry = document.createElement('td')
+            console.log(grade)
             newEntry.dataset.id = grade.id
             newEntry.innerHTML =
                 `<div id="grade${index}" data-grade="100">
                 <div id="grade-display${index}">${grade.grade}</div>
-                <input id="grade-input${index}" class="hidden" value=${grade.grade} type="text"/>
+                <input id="grade-input,${grade.student_id},${grade.assignment_id}" class="hidden" value=${grade.grade} type="text"/>
                 <div class="hidden" id="loading-indicator${index}"></div>
             </div>`
 
             newEntry.addEventListener('click', e => {
-                const gradeInput = document.getElementById(`grade-input${index}`);
+                const gradeInput = document.getElementById(`grade-input,${grade.student_id},${grade.assignment_id}`);
                 const gradeDisplay = document.getElementById(`grade-display${index}`);
 
-                const input = document.getElementById(`grade-input${index}`)
+                const input = document.getElementById(`grade-input,${grade.student_id},${grade.assignment_id}`)
                 input.style.width = '20px'
                 input.style.fontSize = '14px'
                 input.style.textAlign = 'center'
@@ -57,13 +58,17 @@ fetch('http://localhost:3031/grades').then(res => res.json())
                     loadingIndicator.className = 'show';
                     loadingIndicator.innerText = 'Loading';
 
-                    const id = Number(event.target.id.split('grade-input')[1]) + 1
+                    const idArray = event.target.id.split(',');
+                    const studentId = idArray[1];
+                    const assignmentId = idArray[2];
 
                     if (value) {
-                        fetch(`http://localhost:3031/grades/${id}`, {
+                        fetch(`http://localhost:3031/grades`, {
                             method: 'PUT',
                             body: JSON.stringify({
-                                newGrade: value
+                                newGrade: value,
+                                studentId,
+                                assignmentId
                             }),
                             headers: {
                                 "Content-type": "application/json"
