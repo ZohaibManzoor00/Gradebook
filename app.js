@@ -48,8 +48,6 @@ app.post('/', async (req, res) => {
         'id', 'subject', 'assignment_name', 'grade', 'start_date', 'due_date'
     ])
     res.json(query)
-    // INSERT INTO assignments (subject, assignment_name, grade, start_date, due_date)
-    // values ('History', 'Unit 2 Quiz', 100,'2022-01-15', '2022-01-16')
 })
 
 app.put('/grades/:id', async (req, res) => {
@@ -65,10 +63,9 @@ app.put('/grades/:id', async (req, res) => {
 
 app.delete('/', async (req, res) => {
     const body = req.params.body
-    // const query = await db.select().from('assignments').where('assignments.subject')
 })
 
 app.listen(PORT, () => {
-    console.log(`App has been initialized on http://localhost:${PORT}`)
+    console.log(`App initialized on http://localhost:${PORT}`)
 })
 

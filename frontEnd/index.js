@@ -9,7 +9,6 @@ fetch('http://localhost:3031/').then(res => res.json())
         })
     })
 
-
 // -------------Render Students Names-------------
 fetch('http://localhost:3031/students').then(res => res.json())
     .then(data => {
@@ -19,37 +18,33 @@ fetch('http://localhost:3031/students').then(res => res.json())
         })
     })
 
-
 // -------------Render Students Grades-------------
 fetch('http://localhost:3031/grades').then(res => res.json())
     .then(data => {
         const tableChildren = document.getElementById('table-body').children
         let pointer = 5
         data.forEach((grade, index) => {
-            // grade.innerHTML = 
             const newEntry = document.createElement('td')
             newEntry.dataset.id = grade.id
-            newEntry.innerHTML = `
-            <div id="grade${index}" data-grade="100">
+            newEntry.innerHTML =
+                `<div id="grade${index}" data-grade="100">
                 <div id="grade-display${index}">${grade.grade}</div>
                 <input id="grade-input${index}" class="hidden" value=${grade.grade} type="text"/>
                 <div class="hidden" id="loading-indicator${index}"></div>
-            </div>
-            `
-            newEntry.addEventListener('click', e => {
-                // console.log(e.target.dataset.assignmentId)
-                // console.log('Clicked')
-                const element = e.target;
+            </div>`
 
+            newEntry.addEventListener('click', e => {
                 const gradeInput = document.getElementById(`grade-input${index}`);
                 const gradeDisplay = document.getElementById(`grade-display${index}`);
 
                 const input = document.getElementById(`grade-input${index}`)
-                input.style.width = '50px'
+                input.style.width = '20px'
                 input.style.fontSize = '14px'
-                
-                gradeDisplay.className = "hidden";
-                gradeInput.className = "show";
+                input.style.textAlign = 'center'
+                input.style.height = '11px'
+
+                gradeDisplay.className = 'hidden';
+                gradeInput.className = 'show';
 
                 if (gradeInput) {
                     gradeInput.focus();
@@ -57,10 +52,10 @@ fetch('http://localhost:3031/grades').then(res => res.json())
 
                 function saveInput(event) {
                     const value = event.target.value;
-                    gradeInput.className = "hidden";
+                    gradeInput.className = 'hidden';
                     const loadingIndicator = document.getElementById(`loading-indicator${index}`);
-                    loadingIndicator.className = "show";
-                    loadingIndicator.innerText = "Loading";
+                    loadingIndicator.className = 'show';
+                    loadingIndicator.innerText = 'Loading';
 
                     const id = Number(event.target.id.split('grade-input')[1]) + 1
 
@@ -77,10 +72,10 @@ fetch('http://localhost:3031/grades').then(res => res.json())
                     }
 
                     setTimeout(() => {
-                        loadingIndicator.className = "hidden";
-                        gradeDisplay.className = "show";
+                        loadingIndicator.className = 'hidden';
+                        gradeDisplay.className = 'show';
                         gradeDisplay.innerText = value;
-                        gradeInput.removeEventListener("blur", saveInput);
+                        gradeInput.removeEventListener('blur', saveInput);
                     }, 300);
                 }
                 gradeInput.addEventListener('blur', saveInput)
@@ -91,45 +86,15 @@ fetch('http://localhost:3031/grades').then(res => res.json())
         })
     })
 
-// ----------------------- 
-// grade.addEventListener("click", (e) => {
-//     const element = e.target;
-//     const gradeInput = document.getElementById("grade-input");
-//     const gradeDisplay = document.getElementById("grade-display");
-
-//     gradeDisplay.className = "hidden";
-//     gradeInput.className = "show";
-
-//     if (gradeInput) {
-//         gradeInput.focus();
-//     }
-
-//     function saveInput(event) {
-//         const value = event.target.value;
-//         gradeInput.className = "hidden";
-//         const loadingIndicator = document.getElementById("loading-indicator");
-//         loadingIndicator.className = "show";
-//         loadingIndicator.innerText = "Loading";
-
-//         setTimeout(() => {
-//             loadingIndicator.className = "hidden";
-//             gradeDisplay.className = "show";
-//             gradeDisplay.innerText = value;
-//             gradeInput.removeEventListener("blur", saveInput);
-//         }, 600);
-//     }
-
-//     gradeInput.addEventListener('blur', saveInput)
-// });
-// -----------------------
-
-
-// fetch('http://localhost:3031/grades', {
-//     method: 'DELETE'
-// }).then(res => res.json())
-//     .then(data => {
-//         console.log(data)
-//     })
+const editBtn = document.getElementById('edit')
+const editArea = document.getElementById('edit-prompt')
+editBtn.addEventListener('click', e => {
+    const h2 = document.createElement('h2')
+    h2.innerText = 'Select Cell to Update Grade'
+    h2.style.display = 'flex'
+    h2.style.justifyContent = 'center'
+    editArea.appendChild(h2)
+}, { once: true })
 
 function renderStudents(firstName, lastName) {
     const tableBody = document.getElementById('table-body')
@@ -142,7 +107,7 @@ function renderStudents(firstName, lastName) {
     tableBody.appendChild(newStudentRow)
 }
 
-form.addEventListener("submit", e => {
+form.addEventListener('submit', e => {
     e.preventDefault();
 
     const subject = e.target.subject.value;
@@ -206,46 +171,34 @@ function renderGrades(subject, name, grade, startDate, dueDate, id) {
 }
 
 // ------------Assignment Modal------------
-let modal = document.getElementById("myModal");
-let btn = document.getElementById("myBtn");
-let span = document.getElementsByClassName("close")[0];
+let modal1 = document.getElementById('myModal');
+let btn1 = document.getElementById('myBtn');
+let span1 = document.getElementsByClassName('close')[0];
 
-btn.onclick = function () {
-    modal.style.display = "block";
-}
-
-span.onclick = function () {
-    modal.style.display = "none";
-}
-window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-// ------------Assignment Modal------------
-
-
-
-// ------------Delete Modal------------
 const modal2 = document.getElementById('delete-modal')
 const btn2 = document.getElementById('deleteBtn')
-const span2 = document.getElementsByClassName("close")[0];
+const span2 = document.getElementsByClassName('close2')[0];
 
-btn2.onclick = function () {
-    modal2.style.display = "block";
+btn1.onclick = function () {
+    modal1.style.display = 'block';
 }
-
-span2.onclick = function () {
-    modal2.style.display = "none";
+span1.onclick = function () {
+    modal1.style.display = 'none';
 }
-
 window.onclick = function (event) {
-    if (event.target == modal2) {
-        modal2.style.display = "none";
+    if (event.target === modal1) {
+        modal1.style.display = 'none';
+    }
+    if (event.target === modal2) {
+        modal2.style.display = 'none'
     }
 }
-// ------------Delete Modal------------
-
+btn2.onclick = function () {
+    modal2.style.display = 'block';
+}
+span2.onclick = function () {
+    modal2.style.display = 'none';
+}
 
 /*
 const els = document.querySelectorAll('[data-assignment-id="50"]')
@@ -253,12 +206,3 @@ els[0].remove()
 */
 
 
-const editBtn = document.getElementById('edit')
-const editArea = document.getElementById('edit-prompt')
-editBtn.addEventListener('click', e => {
-    const h2 = document.createElement('h2')
-    h2.innerText = 'Select Cell to Update Grade'
-    h2.style.display = 'flex'
-    h2.style.justifyContent = 'center'
-    editArea.appendChild(h2)
-}, {once:true})
