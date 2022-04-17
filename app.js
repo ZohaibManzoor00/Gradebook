@@ -74,6 +74,18 @@ app.post('/grades', async (req, res) => {
     res.json(query)
 })
 
+app.post('/grades', async (req, res) => {
+    const { studentId, assignmentId , newGrade } = req.body 
+    const query = await db('grades').insert({
+        student_id: studentId,
+        assignment_id: assignmentId,
+        grade: newGrade
+    }).returning([
+        'student_id', 'assignment_id', 'grade'
+    ])
+    res.json(query)
+})
+
 app.delete('/', async (req, res) => {
     const body = req.params.body
 })
