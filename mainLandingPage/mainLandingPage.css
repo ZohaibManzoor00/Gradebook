@@ -168,7 +168,8 @@ main {
     display:block;
     margin:0 auto;
     height:300px;
-    background:url('https://www.commonsense.org/education/sites/default/files/styles/16_9_medium/public/blog-share/5-free-classroom-management-tools-any-teacher-can-use-article.png?itok=DZHuco5d')center;
+    background:url('https://www.commonsense.org/education/sites/default/files/styles/16_9_medium/public/blog-share/5-free-classroom-management-tools-any-teacher-can-use-article.png?itok=DZHuco5d');
+    background-position: center;
     background-size:cover;
     position:relative;
   }
@@ -223,7 +224,7 @@ main {
     font-size:1.7em;
     margin-right:2em;
     float:right;
-    display:inline-block;
+    /* display:inline-block; */
   }
   .single_deal .hover{
     width:100%;
@@ -331,13 +332,13 @@ main {
     margin-left:30%;
     font-weight:500;
     width:15%;
-    display:inline-block;
+    /* display:inline-block; */
     float:left;
   }
   .call_to_action .button1{
     color:#292929;
     transition:all 2.5s linear;
-    display:inline-block;
+    /* display:inline-block; */
     text-decoration:none;
     padding:10px 15px;
     background:#f7941d;
@@ -359,7 +360,7 @@ main {
   .call_to_action .button2{
     transition:all 3.5s linear;
     color:#292929;
-    display:inline-block;
+    /* display:inline-block; */
     text-decoration:none;
     padding:10px 15px;
     background:#00aeef;
@@ -492,7 +493,7 @@ main {
   }
   .split_products .product1 .button1{
     color:#292929;
-    display:inline-block;
+    /* display:inline-block; */
     text-decoration:none;
     padding:10px 15px;
     background:#96dd6f;
@@ -503,7 +504,7 @@ main {
   }
   .split_products .product1 .button2{
     color:#292929;
-    display:inline-block;
+    /* display:inline-block; */
     text-decoration:none;
     padding:10px 15px;
     background:#f7941d;
@@ -514,7 +515,7 @@ main {
   }
   .split_products .product2 .button1{
     color:#292929;
-    display:inline-block;
+    /* display:inline-block; */
     text-decoration:none;
     padding:10px 15px;
     background:#00aeef;
@@ -525,7 +526,7 @@ main {
   }
   .split_products .product2 .button2{
     color:#292929;
-    display:inline-block;
+    /* display:inline-block; */
     text-decoration:none;
     padding:10px 15px;
     background:#f7941d;
@@ -588,7 +589,7 @@ main {
       width:100%;
     }
     .single_deal .hover .call_to_action .button2, .single_deal .hover .call_to_action .button1 {
-      display: inline-block;
+      /* display: inline-block; */
       float: left;
       opacity:1;
       margin:.5em;
@@ -646,7 +647,7 @@ main {
       margin:0;
       position:initial;
       background-size:auto;
-      background-position:bottom:
+      background-position:bottom;
     }
      .split_products .product2 .product_name:after,
      .split_products .product2 .product_name:before,
@@ -682,4 +683,5 @@ main {
     .split_products .product2 .product_name{
       text-align:left;
       padding-left:1em;
-    } 
+    }
+  }
