@@ -11,12 +11,12 @@ fetch('http://localhost:3031/').then(res => res.json())
 
 // // -------------Render Students Names-------------
 fetch('http://localhost:3031/students')
-.then(res => res.json())
+    .then(res => res.json())
     .then(data => {
         numberOfStudents = data.length
         data.forEach(student => {
             renderStudents(student.first_name, student.last_name, student.id)
-            
+
         })
     })
 
@@ -33,8 +33,8 @@ fetch('http://localhost:3031/grades').then(res => res.json())
             <div class="hidden" id="loading-indicator,${grade.student_id},${grade.assignment_id}"></div>
         </div>`
             gradeCell.addEventListener('click', e => {
-               
-                        const gradeInput = document.getElementById(`grade-input,${grade.student_id},${grade.assignment_id}`);
+
+                const gradeInput = document.getElementById(`grade-input,${grade.student_id},${grade.assignment_id}`);
                 const gradeDisplay = document.getElementById(`grade-display,${grade.student_id},${grade.assignment_id}`);
 
                 const input = document.getElementById(`grade-input,${grade.student_id},${grade.assignment_id}`)
@@ -85,19 +85,19 @@ fetch('http://localhost:3031/grades').then(res => res.json())
                 }
                 gradeInput.addEventListener('blur', saveInput)
             })
-        //     
+            //     
         })
     })
 
-// const editBtn = document.getElementById('edit')
-// const editArea = document.getElementById('edit-prompt')
-// editBtn.addEventListener('click', e => {
-//     const h2 = document.createElement('h2')
-//     h2.innerText = 'Select Cell to Update Grade'
-//     h2.style.display = 'flex'
-//     h2.style.justifyContent = 'center'
-//     editArea.appendChild(h2)
-// }, { once: true })
+const editBtn = document.getElementById('edit')
+const editArea = document.getElementById('edit-prompt')
+editBtn.addEventListener('click', e => {
+    const h2 = document.createElement('h2')
+    h2.innerText = 'Select Cell to Update Grade'
+    h2.style.display = 'flex'
+    h2.style.justifyContent = 'center'
+    editArea.appendChild(h2)
+}, { once: true })
 
 function renderStudents(firstName, lastName, id) {
     const tableBody = document.getElementById('table-body')
@@ -115,13 +115,6 @@ function renderStudents(firstName, lastName, id) {
         newStudentData.id = `grade-cell,${id},${tableSubjectsId[i].id}`
         newStudentRow.appendChild(newStudentData)
     }
-    /*
-    <div id="grade,${id},${tableSubjectsId[i].id}" data-grade="100">
-        <div id="grade-display,${id},${tableSubjectsId[i].id}"></div>
-        <input id="grade-input,${id},${tableSubjectsId[i].id}" class="hidden" value='' type="text"/>
-        <div class="hidden" id="loading-indicator,${id},${tableSubjectsId[i].id}"></div>
-    </div>
-    */
 }
 
 form.addEventListener('submit', e => {
@@ -221,7 +214,6 @@ span2.onclick = function () {
 }
 
 
-
 const modal3 = document.getElementById('add-student-modal')
 const btn3 = document.getElementById('addStudent')
 const span3 = document.getElementsByClassName('close3')[0]
@@ -233,8 +225,6 @@ btn3.onclick = function () {
 span3.onclick = function () {
     modal3.style.display = 'none';
 }
-
-
 
 const addStudentForm = document.getElementById('add-student-form')
 const fullName = document.getElementById('student-full-name')
