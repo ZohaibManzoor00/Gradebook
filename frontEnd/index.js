@@ -1,7 +1,7 @@
 const form = document.getElementById("form");
 // let numberOfStudents;
 
-// // -------------Render Columns-------------
+// -------------Render Columns-------------
 fetch('http://localhost:3031/').then(res => res.json())
     .then(data => {
         data.forEach(cell => {
@@ -9,7 +9,7 @@ fetch('http://localhost:3031/').then(res => res.json())
         })
     })
 
-// // -------------Render Students Names-------------
+// -------------Render Students Names-------------
 fetch('http://localhost:3031/students')
     .then(res => res.json())
     .then(data => {
@@ -32,8 +32,8 @@ fetch('http://localhost:3031/grades').then(res => res.json())
             <input id="grade-input,${grade.student_id},${grade.assignment_id}" class="hidden" value=${grade.grade} type="text"/>
             <div class="hidden" id="loading-indicator,${grade.student_id},${grade.assignment_id}"></div>
         </div>`
-            gradeCell.addEventListener('click', e => {
 
+            gradeCell.addEventListener('click', e => {
                 const gradeInput = document.getElementById(`grade-input,${grade.student_id},${grade.assignment_id}`);
                 const gradeDisplay = document.getElementById(`grade-display,${grade.student_id},${grade.assignment_id}`);
 
@@ -85,7 +85,6 @@ fetch('http://localhost:3031/grades').then(res => res.json())
                 }
                 gradeInput.addEventListener('blur', saveInput)
             })
-            //     
         })
     })
 
@@ -150,6 +149,26 @@ form.addEventListener('submit', e => {
         .then(data => location.assign('./index.html'))
 });
 
+const addStudentForm = document.getElementById('add-student-form')
+const fullName = document.getElementById('student-full-name')
+const studentEmail = document.getElementById('student-email')
+
+addStudentForm.addEventListener('submit', e => {
+    e.preventDefault()
+    const studentFullName = fullName.value
+    renderStudents(fullName.value, '')
+    fetch('http://localhost:3031/grades', {
+        method: 'POST',
+        body: JSON.stringify({
+            studentFullName
+        }),
+        headers: {
+            "Content-type": "application/json"
+        }
+    }).then(res => res.json())
+        .then(data => location.assign('./index.html'))
+})
+
 function renderGrades(subject, name, grade, startDate, dueDate, id) {
     const subjectDiv = document.getElementById("table-subject");
     const nameDiv = document.getElementById("table-name");
@@ -157,13 +176,11 @@ function renderGrades(subject, name, grade, startDate, dueDate, id) {
     const startDateDiv = document.getElementById('table-start-date')
     const dueDateDiv = document.getElementById('table-due-date')
 
-
     const subjectChild = document.createElement("td");
     const totalPointsChild = document.createElement("td");
     const nameChild = document.createElement("td");
     const startDateChild = document.createElement("td");
     const dueDateChild = document.createElement("td");
-
 
     startDateChild.innerText = startDate;
     dueDateChild.innerText = dueDate;
@@ -213,7 +230,6 @@ span2.onclick = function () {
     modal2.style.display = 'none';
 }
 
-
 const modal3 = document.getElementById('add-student-modal')
 const btn3 = document.getElementById('addStudent')
 const span3 = document.getElementsByClassName('close3')[0]
@@ -225,13 +241,4 @@ btn3.onclick = function () {
 span3.onclick = function () {
     modal3.style.display = 'none';
 }
-
-const addStudentForm = document.getElementById('add-student-form')
-const fullName = document.getElementById('student-full-name')
-const studentEmail = document.getElementById('student-email')
-
-addStudentForm.addEventListener('submit', e => {
-    e.preventDefault()
-    renderStudents(fullName.value, '')
-})
 
