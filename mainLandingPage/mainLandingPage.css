@@ -174,7 +174,7 @@ main {
     position:relative;
   }
   .single_deal .title{ 
-     background:#96dd6f;
+     background:#47bac1;
     width:100%;
     height:60px;
     box-sizing:border-box;
@@ -269,7 +269,7 @@ main {
     height:450px;
   }
   .split_angle .content{
-    background:#96dd6f;
+    background:#47bac1;
     width:40%;
     padding-top:.3em;
     padding-left:2em;
@@ -295,7 +295,7 @@ main {
     float:left;
     border-top: 450px solid transparent;
     border-bottom: 0px solid transparent;
-    border-left: 100px solid #96dd6f;
+    border-left: 100px solid #47bac1;
     z-index:1;
   }
   .image{
@@ -327,7 +327,7 @@ main {
     z-index:-2;
   }
   .call_to_action .price {
-    color: #96dd6f;
+    color: #47bac1;
     margin-top:8px;
     margin-left:30%;
     font-weight:500;
@@ -434,7 +434,7 @@ main {
   .split_products .product2 .product_name{
     width:15%;
     height:70px;
-    background:#96dd6f;
+    background:#47bac1;
     position:relative;
     top:30px;
     padding-top:5px;
@@ -457,7 +457,7 @@ main {
     margin-top: -35px;   
     border-top: 35px solid transparent;
     border-bottom: 35px solid transparent;
-    border-right: 2em solid #96dd6f;
+    border-right: 2em solid #47bac1;
   }
   .split_products .product1 .product_info{
     transition: all 0.5s ease;
@@ -479,7 +479,7 @@ main {
     box-sizing:border-box;
     width:100%;
     height:100%;
-    background:#96dd6f;
+    background:#47bac1;
     position:absolute;
     right:-100%;
     top:0px;
@@ -496,7 +496,7 @@ main {
     /* display:inline-block; */
     text-decoration:none;
     padding:10px 15px;
-    background:#96dd6f;
+    background:#47bac1;
     font-weight:700;
     float:left;
     margin-bottom:25px;
