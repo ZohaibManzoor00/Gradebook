@@ -15,6 +15,7 @@
     <button id="myBtn">Add Assignment</button>
     <button id="deleteBtn">Delete Assignment</button>
     <button id="edit">Edit Table</button>
+    <button id="addStudent">Add Student</button>
     <div id="app"></div>
     <table id="table">
         <tbody id="table-body">
@@ -57,7 +58,7 @@
                 <label for="lname">Due Date</label><br />
                 <input type="text" id="lname" name="dueDate" /><br />
                 <br>
-                <button id="btn" type="submit">Add Assignment</button>
+                <button id="btn1" type="submit">Add Assignment</button>
             </form>
         </div>
     </div>
@@ -71,7 +72,22 @@
                 <label for="lname">Subject</label><br />
                 <input type="text" id="lname" name="name" /><br />
                 <br>
-                <button id="btn" type="submit">Delete Assignment</button>
+                <button id="btn2" type="submit">Delete Assignment</button>
+            </form>
+        </div>
+    </div>
+    <div id="add-student-modal" class="modal">
+        <div class="modal-content">
+            <span class="close3">&times;</span>
+            <form id="add-student-form">
+                <label for="fname">Student Name</label><br />
+                <input type="text" id="student-full-name" name="subject" /><br />
+                <br>
+                <label for="fname">Student Email</label><br />
+                <input type="text" id="student-email" name="subject" /><br />
+                <br>
+                <button id="btn3" type="submit">Add Student</button>
+                <br>
             </form>
         </div>
     </div>

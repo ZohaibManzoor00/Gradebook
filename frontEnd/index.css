@@ -76,6 +76,7 @@ td {
   cursor: pointer;
 }
 
+#addStudent,
 #edit,
 #deleteBtn,
 #myBtn {
@@ -94,6 +95,11 @@ td {
   transition: all 0.2s;
   cursor: pointer;
   background-color: #000000;
+}
+
+#addStudent:hover {
+  color: #000000;
+  background-color: #d0d5da;
 }
 
 #edit:hover {
