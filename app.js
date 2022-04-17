@@ -86,8 +86,11 @@ app.post('/grades', async (req, res) => {
     res.json(query)
 })
 
-app.delete('/', async (req, res) => {
-    const body = req.params.body
+app.delete('/grades', async (req, res) => {
+    const { deleteAssignment, deleteSubject } = req.body
+    const query = await db('assignments').where('assignment_name', deleteAssignment).
+    andWhere('subject', deleteSubject).del()
+    res.json(query)
 })
 
 app.listen(PORT, () => {

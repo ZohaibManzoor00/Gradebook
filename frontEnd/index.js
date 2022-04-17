@@ -163,9 +163,6 @@ function renderStudents(firstName, lastName, id) {
          })
         newStudentRow.appendChild(newStudentData)
     }
-
-
-
 }
 
 
@@ -258,6 +255,27 @@ let span1 = document.getElementsByClassName('close')[0];
 const modal2 = document.getElementById('delete-modal')
 const btn2 = document.getElementById('deleteBtn')
 const span2 = document.getElementsByClassName('close2')[0];
+
+const assignmentNameInput = document.getElementById('assignment-name')
+const subjectNameInput = document.getElementById('subject-name')
+const deleteForm = document.getElementById('delete-form')
+
+deleteForm.addEventListener('submit', e => {
+    e.preventDefault()
+    const deleteAssignment = assignmentNameInput.value
+    const deleteSubject = subjectNameInput.value
+    console.log('Submitted')
+    fetch('http://localhost:3031/grades', {
+        method: 'DELETE', 
+        body: JSON.stringify({
+            deleteAssignment,
+            deleteSubject
+        }),
+        headers: {
+            'Content-type': 'application/json'
+        }
+    }).then(res => res.json()).then(data => location.assign('./index.html'))
+})
 
 btn1.onclick = function () {
     modal1.style.display = 'block';
