@@ -10,7 +10,7 @@ module.exports = {
     connection: {
       database: 'gradebook',
       user:     'postgres',
-      password: '1'
+      password: '1123'
     }
   },
 
