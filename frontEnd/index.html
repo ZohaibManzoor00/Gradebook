@@ -11,8 +11,10 @@
 
 <body>
     <h2 class="welcome">Welcome Teacher!</h2>
+    <div id="edit-prompt"></div>
     <button id="myBtn">Add Assignment</button>
     <button id="deleteBtn">Delete Assignment</button>
+    <button id="edit">Edit Table</button>
     <div id="app"></div>
     <table id="table">
         <tbody id="table-body">
@@ -33,6 +35,16 @@
             </tr>
         </tbody>
     </table>
+    <!-- Trying Click -->
+    <!-- <div id="app">
+        <div id="grade" data-grade="100">
+            <div id="grade-display">100</div>
+            <input id="grade-input" class="hidden" value="100" type="text" id="example" />
+            <div class="hidden" id="loading-indicator"></div>
+        </div>
+    </div> -->
+    <!-- Trying Click -->
+
     <br />
     <!-- Trigger/Open The Modal -->
 
@@ -62,7 +74,7 @@
             </form>
         </div>
     </div>
-    <div id="myModal" class="modal">
+    <div id="delete-modal" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -73,16 +85,7 @@
                 <label for="lname">Name</label><br />
                 <input type="text" id="lname" name="name" /><br />
                 <br>
-                <label for="lname">Total Points</label><br />
-                <input type="text" id="lname" name="grade" /><br />
-                <br>
-                <label for="lname">Start Date</label><br />
-                <input type="text" id="lname" name="startDate" /><br />
-                <br>
-                <label for="lname">Due Date</label><br />
-                <input type="text" id="lname" name="dueDate" /><br />
-                <br>
-                <button id="btn" type="submit">Add Assignment</button>
+                <button id="btn" type="submit">Delete Assignment</button>
             </form>
         </div>
     </div>
