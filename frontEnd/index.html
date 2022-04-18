@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
     <title>Document</title>
 </head>
 
@@ -19,6 +20,7 @@
     <button id="deleteBtn">Delete Assignment</button>
     <!-- <button id="edit">Edit Table</button> -->
     <button id="addStudent">Add Student</button>
+    <button id="deleteStudent">Delete Student</button>
     <button id="studentAvg">Get Student Average</button>
     <div id="app"></div>
     <table id="table">
@@ -108,13 +110,26 @@
                 <input type="text" id="student-to-find" name="subject" /><br />
                 <br>
                 <div class="button4">
-                    <button id="btn4" class="submission-btn" type="submit">Get Student Average</button>
+                    <button id="btn4" class="submission-btn" type="submit">Get Average</button>
                     <br>
                 </div>
             </form>
         </div>
     </div>
-    <script src="index.js"></script>
+    <div id="delete-student" class="modal">
+        <div class="modal-content">
+            <span class="close5">&times;</span>
+            <form id="student-delete-form">
+                <label for="fname">Enter Student Name</label><br />
+                <input type="text" id="student-to-delete" name="subject" /><br />
+                <br>
+                <div class="button5">
+                    <button id="btn5" class="submission-btn" type="submit">Remove Student</button>
+                    <br>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 
 </html>

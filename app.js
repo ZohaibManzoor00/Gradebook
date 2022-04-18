@@ -93,6 +93,12 @@ app.delete('/grades', async (req, res) => {
     res.json(query)
 })
 
+app.delete('/students', async (req, res) => {
+    const { firstName } = req.body
+    const query = await db('students').where('first_name', firstName).del()
+    res.json(query)
+})
+
 app.listen(PORT, () => {
     console.log(`App initialized on http://localhost:${PORT}`)
 })

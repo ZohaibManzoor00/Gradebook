@@ -33,19 +33,25 @@ window.addEventListener('DOMContentLoaded', () => {
                     const gradeDisplay = document.getElementById(`grade-display,${grade.student_id},${grade.assignment_id}`);
                     const input = document.getElementById(`grade-input,${grade.student_id},${grade.assignment_id}`)
 
-                    input.style.width = '20px'
-                    input.style.fontSize = '14px'
-                    input.style.textAlign = 'center'
-                    input.style.height = '11px'
+                    if (input) {
+                        input.style.width = '20px'
+                        input.style.fontSize = '14px'
+                        input.style.textAlign = 'center'
+                        input.style.height = '11px'
+                    }
 
-                    gradeDisplay.className = 'hidden';
+                    if (gradeDisplay) {
+                        gradeDisplay.className = 'hidden';
+                    }
                     gradeInput.className = 'show';
-
-                    gradeDisplay.style.color = '#f1763d'
 
                     if (gradeInput) {
                         gradeInput.focus();
                     }
+
+                    const idArray = e.target.id.split(',');
+                    const studentId = idArray[1];
+                    const assignmentId = idArray[2];
 
                     function saveInput(event) {
                         const value = event.target.value;
@@ -53,6 +59,7 @@ window.addEventListener('DOMContentLoaded', () => {
                         const loadingIndicator = document.getElementById(`loading-indicator,${grade.student_id},${grade.assignment_id}`);
                         loadingIndicator.className = 'show';
                         loadingIndicator.innerText = 'Loading';
+                        loadingIndicator.style.color = '#198754'
 
                         if (value) {
                             fetch(`http://localhost:3031/grades`, {
@@ -117,17 +124,26 @@ window.addEventListener('DOMContentLoaded', () => {
 
                 const input = document.getElementById(`grade-input,${newStudentData.id}`)
 
-                input.style.width = '20px'
-                input.style.fontSize = '14px'
-                input.style.textAlign = 'center'
-                input.style.height = '11px'
+                if (input) {
+                    input.style.width = '20px'
+                    input.style.fontSize = '14px'
+                    input.style.textAlign = 'center'
+                    input.style.height = '11px'
+                }
 
-                gradeDisplay.className = 'hidden';
+                if (gradeDisplay) {
+                    gradeDisplay.className = 'hidden';
+                }
+
                 gradeInput.className = 'show';
 
                 if (gradeInput) {
                     gradeInput.focus();
                 }
+
+                const idArray = e.target.id.split(',');
+                const studentId = idArray[1];
+                const assignmentId = idArray[2];
 
                 function saveInput(event) {
                     const value = event.target.value;
@@ -135,20 +151,21 @@ window.addEventListener('DOMContentLoaded', () => {
                     const loadingIndicator = document.getElementById(`loading-indicator,${newStudentData.id}`);
                     loadingIndicator.className = 'show';
                     loadingIndicator.innerText = 'Loading';
+                    loadingIndicator.style.color = '#198754'
 
-                    // if (value) {
-                    //     fetch(`http://localhost:3031/grades`, {
-                    //         method: 'POST',
-                    //         body: JSON.stringify({
-                    //             studentId,
-                    //             assignmentId,
-                    //             newGrade: value,
-                    //         }),
-                    //         headers: {
-                    //             "Content-type": "application/json"
-                    //         }
-                    //     }).then(res => res.json()).then(data => returned = data)
-                    // }
+                    if (value) {
+                        fetch(`http://localhost:3031/grades`, {
+                            method: 'POST',
+                            body: JSON.stringify({
+                                studentId,
+                                assignmentId,
+                                newGrade: value,
+                            }),
+                            headers: {
+                                "Content-type": "application/json"
+                            }
+                        }).then(res => res.json()).then(data => returned = data)
+                    }
 
                     setTimeout(() => {
                         loadingIndicator.className = 'hidden';
@@ -270,6 +287,10 @@ window.addEventListener('DOMContentLoaded', () => {
     const btn4 = document.getElementById('studentAvg')
     const span4 = document.getElementsByClassName('close4')[0]
 
+    const modal5 = document.getElementById('delete-student')
+    const btn5 = document.getElementById('deleteStudent')
+    const span5 = document.getElementsByClassName('close5')[0]
+
     btn1.onclick = function () {
         modal1.style.display = 'block';
     }
@@ -297,6 +318,12 @@ window.addEventListener('DOMContentLoaded', () => {
     span4.onclick = function () {
         modal4.style.display = 'none';
     }
+    btn5.onclick = function () {
+        modal5.style.display = 'block';
+    }
+    span5.onclick = function () {
+        modal5.style.display = 'none';
+    }
 
     window.onclick = function (event) {
         if (event.target === modal1) {
@@ -311,17 +338,10 @@ window.addEventListener('DOMContentLoaded', () => {
         if (event.target === modal4) {
             modal4.style.display = 'none'
         }
+        if (event.target === modal5) {
+            modal5.style.display = 'none'
+        }
     }
-
-    // const editBtn = document.getElementById('edit')
-    // const editArea = document.getElementById('edit-prompt')
-    // editBtn.addEventListener('click', e => {
-    //     const h2 = document.createElement('h2')
-    //     h2.innerText = 'Select Cell to Update Grade'
-    //     h2.style.display = 'flex'
-    //     h2.style.justifyContent = 'center'
-    //     editArea.appendChild(h2)
-    // }, { once: true })
 
     const assignmentNameInput = document.getElementById('assignment-name')
     const subjectNameInput = document.getElementById('subject-name')
@@ -348,11 +368,22 @@ window.addEventListener('DOMContentLoaded', () => {
         e.preventDefault()
         const studentAvgInput = document.getElementById('student-to-find')
         const studentAvgInputValue = studentAvgInput.value
-
-        fetch('http://localhost:3031/grades/:studentId').then(res => res.json()).then(data => data)
-
+        // fetch('http://localhost:3031/grades/:studentId').then(res => res.json()).then(data => data)
     })
 
-
-
+    const studentDeleteForm = document.getElementById('student-delete-form')
+    studentDeleteForm.addEventListener('submit', e => {
+        e.preventDefault()
+        const deleteInput = document.getElementById('student-to-delete')
+        const firstName = deleteInput.value
+        fetch('http://localhost:3031/students', {
+            method: 'DELETE',
+            body: JSON.stringify({
+                firstName
+            }),
+            headers: {
+                'Content-type': 'application/json'
+            }
+        }).then(res => res.json()).then(data => location.assign('./index.html'))
+    })
 })
