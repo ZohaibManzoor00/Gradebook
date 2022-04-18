@@ -62,11 +62,11 @@ app.put('/grades', async (req, res) => {
 })
 
 app.post('/grades', async (req, res) => {
-    const { studentFullName } = req.body
+    const { studentFullName, studentNewEmail } = req.body
     const query = await db('students').insert({
         first_name: studentFullName, 
         last_name: '',
-        email: '',
+        email: studentNewEmail,
         grade: 0
     }).returning([
         'id', 'first_name', 'last_name', 'email', 'grade' 
@@ -86,11 +86,17 @@ app.post('/grades', async (req, res) => {
     res.json(query)
 })
 
-app.delete('/', async (req, res) => {
-    const body = req.params.body
+app.delete('/grades', async (req, res) => {
+    const { deleteAssignment, deleteSubject } = req.body
+    const query = await db('assignments').where('assignment_name', deleteAssignment).
+    andWhere('subject', deleteSubject).del()
+    res.json(query)
 })
 
 app.listen(PORT, () => {
     console.log(`App initialized on http://localhost:${PORT}`)
 })
 
+
+// A Students avg
+// select AVG(grade) FROM grades where student_id = 60 

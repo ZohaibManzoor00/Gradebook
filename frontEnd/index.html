@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
     <title>Document</title>
 </head>
@@ -14,8 +17,9 @@
     <div id="edit-prompt"></div>
     <button id="myBtn">Add Assignment</button>
     <button id="deleteBtn">Delete Assignment</button>
-    <button id="edit">Edit Table</button>
+    <!-- <button id="edit">Edit Table</button> -->
     <button id="addStudent">Add Student</button>
+    <button id="studentAvg">Get Student Average</button>
     <div id="app"></div>
     <table id="table">
         <tbody id="table-body">
@@ -39,11 +43,10 @@
 
     <!-- The Modal -->
     <div id="myModal" class="modal">
-
         <div class="modal-content">
             <span class="close">&times;</span>
             <form id="form">
-                <label for="fname">Subject</label><br />
+                <label for="fname" class="input-forms">Subject</label><br />
                 <input type="text" id="fname" name="subject" /><br />
                 <br>
                 <label for="lname">Name</label><br />
@@ -58,21 +61,25 @@
                 <label for="lname">Due Date</label><br />
                 <input type="text" id="lname" name="dueDate" /><br />
                 <br>
-                <button id="btn1" type="submit">Add Assignment</button>
+                <div class="button1">
+                    <button id="btn1" class="submission-btn" type="submit">Add Assignment</button>
+                </div>
             </form>
         </div>
     </div>
     <div id="delete-modal" class="modal">
         <div class="modal-content">
             <span class="close2">&times;</span>
-            <form id="form">
+            <form id="delete-form">
                 <label for="fname">Assignment Name</label><br />
-                <input type="text" id="fname" name="subject" /><br />
+                <input type="text" id="assignment-name" name="subject" /><br />
                 <br>
                 <label for="lname">Subject</label><br />
-                <input type="text" id="lname" name="name" /><br />
+                <input type="text" id="subject-name" name="name" /><br />
                 <br>
-                <button id="btn2" type="submit">Delete Assignment</button>
+                <div class="button2">
+                    <button id="btn2" class="submission-btn" type="submit">Delete Assignment</button>
+                </div>
             </form>
         </div>
     </div>
@@ -86,8 +93,24 @@
                 <label for="fname">Student Email</label><br />
                 <input type="text" id="student-email" name="subject" /><br />
                 <br>
-                <button id="btn3" type="submit">Add Student</button>
+                <div class="button3">
+                    <button id="btn3" class="submission-btn" type="submit">Add Student</button>
+                    <br>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="student-average" class="modal">
+        <div class="modal-content">
+            <span class="close4">&times;</span>
+            <form id="student-average-form">
+                <label for="fname">Enter Student Name</label><br />
+                <input type="text" id="student-to-find" name="subject" /><br />
                 <br>
+                <div class="button4">
+                    <button id="btn4" class="submission-btn" type="submit">Get Student Average</button>
+                    <br>
+                </div>
             </form>
         </div>
     </div>
