@@ -231,7 +231,7 @@ window.addEventListener('DOMContentLoaded', () => {
         const studentFullName = fullName.value
         const studentNewEmail = emailAddressStudent.value
         renderStudents(fullName.value, '')
-        fetch('http://localhost:3031/grades', {
+        fetch('http://localhost:3031/students', {
             method: 'POST',
             body: JSON.stringify({
                 studentFullName,
