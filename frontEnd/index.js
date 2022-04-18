@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
     // -------------Render Columns-------------
-    fetch('http://localhost:3031/').then(res => res.json())
+    fetch('http://localhost:3031/assignments').then(res => res.json())
         .then(data => {
             data.forEach(cell => {
                 renderGrades(cell.subject, cell.assignment_name, cell.grade, cell.start_date.substring(5, 10), cell.due_date.substring(5, 10), cell.id)
@@ -95,6 +95,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
         newStudentTH.innerText = firstName + ' ' + lastName
         newStudentTH.style.color = '#007017'
+        newStudentTH.style.cursor = 'pointer'
 
         newStudentTH.addEventListener('click', e => {
             e.preventDefault()
@@ -208,7 +209,7 @@ window.addEventListener('DOMContentLoaded', () => {
         e.target.name.value = ''
         e.target.grade.value = ''
 
-        fetch('http://localhost:3031/', {
+        fetch('http://localhost:3031/assignments', {
             method: 'POST',
             body: JSON.stringify({
                 subject,
