@@ -97,3 +97,6 @@ app.listen(PORT, () => {
     console.log(`App initialized on http://localhost:${PORT}`)
 })
 
+
+// A Students avg
+// select AVG(grade) FROM grades where student_id = 60 

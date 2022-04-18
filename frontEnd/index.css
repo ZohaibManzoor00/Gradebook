@@ -1,11 +1,17 @@
 body {
-  font-family: "Lato";
-  background: rgb(238, 174, 202);
+  font-family: 'Poppins', sans-serif;
+  /* background: rgb(238, 174, 202);
   background: radial-gradient(
     circle,
     rgba(222, 226, 230, 1) 0%,
     rgba(173, 181, 189, 1) 100%
-  );
+  ); */
+  /* background-color: #e3ddd2; */
+  background-color: rgb(195, 189, 189);
+}
+
+* {
+  font-weight: 700;
 }
 
 table,
@@ -27,46 +33,46 @@ td {
   padding-right: 10px;
 }
 
-#form {
+/* #form {
   padding-left: 40px;
+} */
+
+#student-average-form,
+#add-student-form,
+#delete-form,
+#form {
+  margin-left: 650px;
 }
 
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  display: none; 
+  position: fixed;
+  z-index: 1; 
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0, 0, 0); 
+  background-color: rgba(0, 0, 0, 0.4); 
 }
 
-/* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 80%; 
 }
 
-/* The Close Button */
+.close4,
+.close3,
 .close2,
 .close {
   color: #aaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
-}
-
-.close2:hover, 
-.close2:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
 }
 
 .close:hover,
@@ -76,11 +82,33 @@ td {
   cursor: pointer;
 }
 
+.close2:hover, 
+.close2:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.close3:hover, 
+.close3:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.close4:hover, 
+.close4:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#studentAvg,
 #addStudent,
 #edit,
 #deleteBtn,
 #myBtn {
-  margin-top: 20px;
+  margin-top: 00px;
   margin-left: 40px;
   display: inline-block;
   padding: 0.35em 1.2em;
@@ -89,12 +117,22 @@ td {
   box-sizing: border-box;
   text-decoration: none;
   font-family: "Roboto", sans-serif;
-  font-weight: 300;
+  font-weight: 500;
   color: #d0d5da;
   text-align: center;
   transition: all 0.2s;
   cursor: pointer;
   background-color: #000000;
+}
+
+#studentAvg:hover {
+  color: #000000;
+  background-color: #d0d5da;
+}
+
+.submission-btn:hover {
+  color: #000000;
+  background-color: #d0d5da;
 }
 
 #addStudent:hover {
@@ -127,10 +165,12 @@ td {
   margin-top: 50px;
   margin-left: 40px;
   font-family: 'Lato';
+  color: #e26749;
+  font-size: 40px;
 }
 
 th {
-  color: #743034
+  color: #8a2423
 }
 
 .hidden {
@@ -143,5 +183,32 @@ th {
 
 #grade-input {
   width: 50px;
+}
+
+.submission-btn {
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #000000;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #d0d5da;
+  text-align: center;
+  transition: all 0.2s;
+  cursor: pointer;
+  background-color: #000000;
+}
+
+.button3 {
+  padding-left: 20px;
+}
+
+.button2 {
+  padding-left: 2px;
+}
+
+.button1 {
+  padding-left: 10px;
 }
 
