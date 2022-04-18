@@ -100,7 +100,11 @@ window.addEventListener('DOMContentLoaded', () => {
             e.preventDefault()
             fetch(`http://localhost:3031/${id}`).then(res => res.json()).then(data => {
                 const avg = data[0].avg
-                console.log(avg.slice(0, 2) + '%')
+                const averageData = avg.slice(0, 2) + '%'
+                const modal6 = document.getElementById('a-student-average')
+                modal6.style.display = 'block';
+                const div = document.getElementById('specific-student-average')
+                div.innerText = `${firstName}'s Average: ${averageData}`
             })
         })
 
@@ -137,7 +141,9 @@ window.addEventListener('DOMContentLoaded', () => {
                     gradeDisplay.className = 'hidden';
                 }
 
-                gradeInput.className = 'show';
+                if (gradeInput) {
+                    gradeInput.className = 'show';
+                }
 
                 if (gradeInput) {
                     gradeInput.focus();
@@ -293,6 +299,10 @@ window.addEventListener('DOMContentLoaded', () => {
     const btn5 = document.getElementById('deleteStudent')
     const span5 = document.getElementsByClassName('close5')[0]
 
+    const modal6 = document.getElementById('a-student-average')
+    // const btn6 = document.getElementById('btn')
+    const span6 = document.getElementsByClassName('close6')[0]
+
     btn1.onclick = function () {
         modal1.style.display = 'block';
     }
@@ -328,6 +338,13 @@ window.addEventListener('DOMContentLoaded', () => {
         modal5.style.display = 'none';
     }
 
+    // btn6.onclick = function () {
+    //     modal6.style.display = 'block';
+    // }
+    span6.onclick = function () {
+        modal6.style.display = 'none';
+    }
+
     window.onclick = function (event) {
         if (event.target === modal1) {
             modal1.style.display = 'none';
@@ -343,6 +360,9 @@ window.addEventListener('DOMContentLoaded', () => {
         // }
         if (event.target === modal5) {
             modal5.style.display = 'none'
+        }
+        if (event.target === modal6) {
+            modal6.style.display = 'none'
         }
     }
 
