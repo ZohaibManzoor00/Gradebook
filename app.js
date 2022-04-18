@@ -62,11 +62,11 @@ app.put('/grades', async (req, res) => {
 })
 
 app.post('/grades', async (req, res) => {
-    const { studentFullName } = req.body
+    const { studentFullName, studentNewEmail } = req.body
     const query = await db('students').insert({
         first_name: studentFullName, 
         last_name: '',
-        email: '',
+        email: studentNewEmail,
         grade: 0
     }).returning([
         'id', 'first_name', 'last_name', 'email', 'grade' 

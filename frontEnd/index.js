@@ -41,7 +41,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     gradeDisplay.className = 'hidden';
                     gradeInput.className = 'show';
 
-                    gradeDisplay.style.color = '#ffc107'
+                    gradeDisplay.style.color = '#f1763d'
 
                     if (gradeInput) {
                         gradeInput.focus();
@@ -53,10 +53,6 @@ window.addEventListener('DOMContentLoaded', () => {
                         const loadingIndicator = document.getElementById(`loading-indicator,${grade.student_id},${grade.assignment_id}`);
                         loadingIndicator.className = 'show';
                         loadingIndicator.innerText = 'Loading';
-
-                        const idArray = event.target.id.split(',');
-                        const studentId = idArray[1];
-                        const assignmentId = idArray[2];
 
                         if (value) {
                             fetch(`http://localhost:3031/grades`, {
@@ -92,6 +88,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
         newStudentTH.innerText = firstName + ' ' + lastName
         newStudentTH.style.color = '#007017'
+
+        newStudentTH.addEventListener('click', e => {
+            e.preventDefault()
+            fetch('http://localhost:3031/students').then(res => res.json()).then(data => console.log(data))
+            // console.log('Hello')
+        })
+
         newStudentRow.appendChild(newStudentTH)
         tableBody.appendChild(newStudentRow)
         const tableSubjectsId = document.getElementById('table-subject').children
@@ -197,14 +200,17 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const addStudentForm = document.getElementById('add-student-form')
     const fullName = document.getElementById('student-full-name')
+    const emailAddressStudent = document.getElementById('student-email')
     addStudentForm.addEventListener('submit', e => {
         e.preventDefault()
         const studentFullName = fullName.value
+        const studentNewEmail = emailAddressStudent.value
         renderStudents(fullName.value, '')
         fetch('http://localhost:3031/grades', {
             method: 'POST',
             body: JSON.stringify({
-                studentFullName
+                studentFullName,
+                studentNewEmail
             }),
             headers: {
                 "Content-type": "application/json"

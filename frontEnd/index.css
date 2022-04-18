@@ -118,41 +118,41 @@ td {
   text-decoration: none;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
-  color: #d0d5da;
+  color: black;
   text-align: center;
   transition: all 0.2s;
   cursor: pointer;
-  background-color: #000000;
+  background-color: #a8aaad;
 }
 
 #studentAvg:hover {
   color: #000000;
-  background-color: #d0d5da;
+  background-color: rgb(195, 189, 189);
 }
 
 .submission-btn:hover {
   color: #000000;
-  background-color: #d0d5da;
+  background-color: rgb(195, 189, 189);
 }
 
 #addStudent:hover {
   color: #000000;
-  background-color: #d0d5da;
+  background-color: rgb(195, 189, 189);
 }
 
 #edit:hover {
   color: #000000;
-  background-color: #d0d5da;
+  background-color: rgb(195, 189, 189);
 }
 
 #deleteBtn:hover {
   color: #000000;
-  background-color: #d0d5da;
+  background-color: rgb(195, 189, 189);
 }
 
 #myBtn:hover {
   color: #000000;
-  background-color: #d0d5da;
+  background-color: rgb(195, 189, 189);
 }
 @media all and (max-width: 30em) {
   a.button1 {
@@ -165,7 +165,7 @@ td {
   margin-top: 50px;
   margin-left: 40px;
   font-family: 'Lato';
-  color: #e26749;
+  color: #29487b;
   font-size: 40px;
 }
 
@@ -193,15 +193,19 @@ th {
   text-decoration: none;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
-  color: #d0d5da;
+  color: black;
   text-align: center;
   transition: all 0.2s;
   cursor: pointer;
-  background-color: #000000;
+  background-color: #a8aaad;
+}
+
+.button4 {
+  padding-left: 8px;
 }
 
 .button3 {
-  padding-left: 20px;
+  padding-left: 30px;
 }
 
 .button2 {
@@ -209,6 +213,7 @@ th {
 }
 
 .button1 {
-  padding-left: 10px;
+  padding-left: 20px;
 }
+
 
