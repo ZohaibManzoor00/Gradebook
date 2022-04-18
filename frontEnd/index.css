@@ -181,7 +181,7 @@ td {
 }
 
 .welcome {
-  margin-top: 50px;
+  /* margin-top: 50px; */
   margin-left: 40px;
   font-family: 'Lato';
   color: #29487b;
@@ -245,4 +245,14 @@ th {
   
 }
 
+.instructions {
+  display: flex;
+  justify-content: center;
+  /* padding-bottom: -500px; */
+}
 
+#help {
+  display: flex;
+  justify-content: end;
+  padding-right: 50px;
+}
