@@ -61,7 +61,7 @@ app.put('/grades', async (req, res) => {
     res.json(query)
 })
 
-app.post('/grades', async (req, res) => {
+app.post('/students', async (req, res) => {
     const { studentFullName, studentNewEmail } = req.body
     const query = await db('students').insert({
         first_name: studentFullName, 
@@ -80,9 +80,10 @@ app.post('/grades', async (req, res) => {
         student_id: studentId,
         assignment_id: assignmentId,
         grade: newGrade
-    }).returning([
-        'student_id', 'assignment_id', 'grade'
-    ])
+    })
+    // .returning([
+    //     'student_id', 'assignment_id', 'grade'
+    // ])
     res.json(query)
 })
 
@@ -99,10 +100,15 @@ app.delete('/students', async (req, res) => {
     res.json(query)
 })
 
+app.get('/:id', async (req, res) => {
+    const id = req.params.id
+    const query = await db('grades').avg('grade').where('student_id', id)
+    res.json(query)
+})
+
 app.listen(PORT, () => {
     console.log(`App initialized on http://localhost:${PORT}`)
 })
-
 
 // A Students avg
 // select AVG(grade) FROM grades where student_id = 60 

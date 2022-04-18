@@ -98,8 +98,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
         newStudentTH.addEventListener('click', e => {
             e.preventDefault()
-            fetch('http://localhost:3031/students').then(res => res.json()).then(data => console.log(data))
-            // console.log('Hello')
+            fetch(`http://localhost:3031/${id}`).then(res => res.json()).then(data => {
+                const avg = data[0].avg
+                console.log(avg.slice(0, 2) + '%')
+            })
         })
 
         newStudentRow.appendChild(newStudentTH)
@@ -142,8 +144,8 @@ window.addEventListener('DOMContentLoaded', () => {
                 }
 
                 const idArray = e.target.id.split(',');
-                const studentId = idArray[1];
-                const assignmentId = idArray[2];
+                const studentId = idArray[2];
+                const assignmentId = idArray[3];
 
                 function saveInput(event) {
                     const value = event.target.value;
@@ -283,9 +285,9 @@ window.addEventListener('DOMContentLoaded', () => {
     const btn3 = document.getElementById('addStudent')
     const span3 = document.getElementsByClassName('close3')[0]
 
-    const modal4 = document.getElementById('student-average')
-    const btn4 = document.getElementById('studentAvg')
-    const span4 = document.getElementsByClassName('close4')[0]
+    // const modal4 = document.getElementById('student-average')
+    // const btn4 = document.getElementById('studentAvg')
+    // const span4 = document.getElementsByClassName('close4')[0]
 
     const modal5 = document.getElementById('delete-student')
     const btn5 = document.getElementById('deleteStudent')
@@ -312,12 +314,13 @@ window.addEventListener('DOMContentLoaded', () => {
         modal3.style.display = 'none';
     }
 
-    btn4.onclick = function () {
-        modal4.style.display = 'block';
-    }
-    span4.onclick = function () {
-        modal4.style.display = 'none';
-    }
+    // btn4.onclick = function () {
+    //     modal4.style.display = 'block';
+    // }
+    // span4.onclick = function () {
+    //     modal4.style.display = 'none';
+    // }
+
     btn5.onclick = function () {
         modal5.style.display = 'block';
     }
@@ -335,9 +338,9 @@ window.addEventListener('DOMContentLoaded', () => {
         if (event.target === modal3) {
             modal3.style.display = 'none'
         }
-        if (event.target === modal4) {
-            modal4.style.display = 'none'
-        }
+        // if (event.target === modal4) {
+        //     modal4.style.display = 'none'
+        // }
         if (event.target === modal5) {
             modal5.style.display = 'none'
         }
@@ -350,7 +353,7 @@ window.addEventListener('DOMContentLoaded', () => {
         e.preventDefault()
         const deleteAssignment = assignmentNameInput.value
         const deleteSubject = subjectNameInput.value
-        console.log('Submitted')
+        // console.log('Submitted')
         fetch('http://localhost:3031/grades', {
             method: 'DELETE',
             body: JSON.stringify({
@@ -364,12 +367,15 @@ window.addEventListener('DOMContentLoaded', () => {
     })
 
     const studentAverageForm = document.getElementById('student-average-form')
-    studentAverageForm.addEventListener('submit', e => {
-        e.preventDefault()
-        const studentAvgInput = document.getElementById('student-to-find')
-        const studentAvgInputValue = studentAvgInput.value
-        // fetch('http://localhost:3031/grades/:studentId').then(res => res.json()).then(data => data)
-    })
+    // studentAverageForm.addEventListener('submit', e => {
+    //     e.preventDefault()
+    //     const studentAvgInput = document.getElementById('student-to-find')
+    //     const studentAvgInputValue = studentAvgInput.value
+    //     const idArray = e.target.id.split(',');
+    //     const studentId = idArray[2];
+    //     console.log(studentId)
+    //     fetch(`http://localhost:3031/:${studentId}`).then(res => res.json()).then(data => console.log(data))
+    // })
 
     const studentDeleteForm = document.getElementById('student-delete-form')
     studentDeleteForm.addEventListener('submit', e => {
