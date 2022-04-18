@@ -13,14 +13,8 @@ const PORT = process.env.PORT || 3031
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-// app.use(todosRouter)
 
-// app.get('/student/:id/grades', (req, res) => {
-//     res.status(200).send('Get Route Working')
-//     // get student grade
-// })
-
-app.get('/', async (req, res) => {
+app.get('/assignments', async (req, res) => {
     const query = await db.select().from('assignments').orderBy('start_date')
     res.json(query)
 })
@@ -36,7 +30,7 @@ app.get('/grades', async (req, res) => {
     res.json(query)
 })
 
-app.post('/', async (req, res) => {
+app.post('/assignments', async (req, res) => {
     const { subject, name, grade, startDate, dueDate } = req.body
     const query = await db('assignments').insert({
         subject,
@@ -64,18 +58,18 @@ app.put('/grades', async (req, res) => {
 app.post('/students', async (req, res) => {
     const { studentFullName, studentNewEmail } = req.body
     const query = await db('students').insert({
-        first_name: studentFullName, 
+        first_name: studentFullName,
         last_name: '',
         email: studentNewEmail,
         grade: 0
     }).returning([
-        'id', 'first_name', 'last_name', 'email', 'grade' 
+        'id', 'first_name', 'last_name', 'email', 'grade'
     ])
     res.json(query)
 })
 
 app.post('/grades', async (req, res) => {
-    const { studentId, assignmentId , newGrade } = req.body 
+    const { studentId, assignmentId, newGrade } = req.body
     const query = await db('grades').insert({
         student_id: studentId,
         assignment_id: assignmentId,
@@ -90,7 +84,7 @@ app.post('/grades', async (req, res) => {
 app.delete('/grades', async (req, res) => {
     const { deleteAssignment, deleteSubject } = req.body
     const query = await db('assignments').where('assignment_name', deleteAssignment).
-    andWhere('subject', deleteSubject).del()
+        andWhere('subject', deleteSubject).del()
     res.json(query)
 })
 
