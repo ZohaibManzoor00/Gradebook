@@ -100,6 +100,17 @@ app.get('/:id', async (req, res) => {
     res.json(query)
 })
 
+app.post('/register', async (req, res) => {
+    const username = req.body.username
+    const password = req.body.password
+    const query = await db('teachers').insert({
+        username,password
+    }).returning([
+        'id', 'username', 'password'
+    ])
+    res.json(query)
+})
+
 app.listen(PORT, () => {
     console.log(`App initialized on http://localhost:${PORT}`)
 })
