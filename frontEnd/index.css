@@ -359,3 +359,8 @@ th {
   cursor: pointer;
 }
 
+a {
+  text-decoration: none;
+  color: #29487b;
+  padding-left: 20px
+}
