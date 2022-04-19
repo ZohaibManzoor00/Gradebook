@@ -241,7 +241,7 @@ window.addEventListener('DOMContentLoaded', () => {
             headers: {
                 "Content-type": "application/json"
             }
-        }).then(res => res.json()).then(data => location.assign('./index.html'))
+        }).then(res => res.json()).then(data => returned = data)
     })
 
     function renderGrades(subject, name, grade, startDate, dueDate, id) {
