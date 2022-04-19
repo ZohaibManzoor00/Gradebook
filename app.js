@@ -93,15 +93,17 @@ app.post('/students', async (req, res) => {
 
 app.post('/grades', async (req, res) => {
     const { studentId, assignmentId, newGrade } = req.body
-    const query = await db('grades').insert({
-        student_id: studentId,
-        assignment_id: assignmentId,
-        grade: newGrade
-    })
-    // .returning([
-    //     'student_id', 'assignment_id', 'grade'
-    // ])
-    res.json(query)
+    if (newGrade && assignmentId && studentId) {
+        const query = await db('grades').insert({
+            student_id: studentId,
+            assignment_id: assignmentId,
+            grade: newGrade
+        })
+        // .returning([
+        //     'student_id', 'assignment_id', 'grade'
+        // ])
+        res.json(query)
+    }
 })
 
 app.delete('/grades', async (req, res) => {

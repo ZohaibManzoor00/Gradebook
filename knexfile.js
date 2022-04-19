@@ -9,25 +9,52 @@ module.exports = {
     client: 'postgresql',
     connection: {
       database: 'gradebook',
-      user:     'postgres',
+      user: 'postgres',
       password: '1'
     }
+  }, pool: {
+    min: 2,
+    max: 10
   },
-
+  migrations: {
+    tableName: 'knex_migrations',
+    directory: './migrations'
+  },
+  seeds: {
+    directory: './seeds'
+  },
   production: {
-    client: 'postgresql',
+    client: "pg",
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
+      connectionString: process.env.DATABASE_URL,
+      ssl: { rejectUnauthorized: false }
     },
     pool: {
       min: 2,
-      max: 10
+      max: 10,
     },
     migrations: {
-      tableName: 'knex_migrations'
+      directory: './migrations'
+    },
+    seeds: {
+      directory: './seeds'
     }
-  }
+  },
+
+  // production: {
+  //   client: 'postgresql',
+  //   connection: {
+  //     database: 'my_db',
+  //     user:     'username',
+  //     password: 'password'
+  //   },
+  //   pool: {
+  //     min: 2,
+  //     max: 10
+  //   },
+  //   migrations: {
+  //     tableName: 'knex_migrations'
+  //   }
+  // }
 
 };

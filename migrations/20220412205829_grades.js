@@ -9,7 +9,7 @@ exports.up = function(knex) {
         table.primary(['student_id', 'assignment_id'])
         table.integer('student_id').notNullable()
         table.integer('assignment_id').notNullable()
-        table.integer('grade').notNullable()
+        table.string('grade')
     })
 };
 
