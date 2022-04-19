@@ -7,8 +7,10 @@ body {
     rgba(173, 181, 189, 1) 100%
   ); */
   /* background-color: #e3ddd2; */
-  background-color: rgb(195, 189, 189);
+  background-color: whitesmoke;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 * {
   font-weight: 700;
@@ -124,12 +126,61 @@ td {
   cursor: pointer;
 }
 
-#deleteStudent,
-#studentAvg,
-#addStudent,
-#edit,
-#deleteBtn,
-#myBtn {
+#deleteStudent{
+  margin-top: 00px;
+  margin-left: 40px;
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #b38383;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Bebas Neue', cursive;
+  font-weight: 600;
+  color: whitesmoke;
+  text-align: center;
+  transition: all 0.2s;
+  cursor: pointer;
+  background-color: #b03532;
+}
+
+#studentAvg{
+  margin-top: 00px;
+  margin-left: 40px;
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #b38383;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Bebas Neue', cursive;
+  font-weight: 600;
+  color: whitesmoke;
+  text-align: center;
+  transition: all 0.2s;
+  cursor: pointer;
+  background-color: #b03532;
+}
+
+#addStudent{
+  margin-top: 00px;
+  margin-left: 40px;
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #b38383;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Bebas Neue', cursive;
+  font-weight: 600;
+  color: whitesmoke;
+  text-align: center;
+  transition: all 0.2s;
+  cursor: pointer;
+  background-color: #31af3c;
+}
+
+#edit{
   margin-top: 00px;
   margin-left: 40px;
   display: inline-block;
@@ -144,27 +195,63 @@ td {
   text-align: center;
   transition: all 0.2s;
   cursor: pointer;
-  background-color: #a8aaad;
+  background-color: #8a2423;
+}
+
+#deleteBtn{
+  margin-top: 00px;
+  margin-left: 40px;
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #b38383;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Bebas Neue', cursive;
+  font-weight: 600;
+  color: whitesmoke;
+  text-align: center;
+  transition: all 0.2s;
+  cursor: pointer;
+  background-color: #b03532;
+}
+
+#myBtn {
+  margin-top: 00px;
+  margin-left: 40px;
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #b38383;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Bebas Neue', cursive;
+  font-weight: 600;
+  color: whitesmoke;
+  text-align: center;
+  transition: all 0.2s;
+  cursor: pointer;
+  background-color: #31af3c;
 }
 
 #studentAvg:hover {
-  color: #000000;
+  color: whitesmoke;
   background-color: rgb(195, 189, 189);
 }
 
 #deleteStudent:hover {
-  color: #000000;
-  background-color: rgb(195, 189, 189);
+  color: black;
+  background-color: rgb(218, 206, 44);
 }
 
 .submission-btn:hover {
-  color: #000000;
+  color: whitesmoke;
   background-color: rgb(195, 189, 189);
 }
 
 #addStudent:hover {
-  color: #000000;
-  background-color: rgb(195, 189, 189);
+  color: whitesmoke;
+  background-color: rgb(218, 147, 67);
 }
 
 #edit:hover {
@@ -174,12 +261,12 @@ td {
 
 #deleteBtn:hover {
   color: #000000;
-  background-color: rgb(195, 189, 189);
+  background-color: rgb(218, 206, 44);
 }
 
 #myBtn:hover {
-  color: #000000;
-  background-color: rgb(195, 189, 189);
+  color: whitesmoke;
+  background-color: rgb(218, 147, 67);
 }
 @media all and (max-width: 30em) {
   a.button1 {
@@ -191,7 +278,7 @@ td {
 .welcome {
   /* margin-top: 50px; */
   margin-left: 40px;
-  font-family: 'Lato';
+  font-family: 'Lobster', cursive;;
   color: #29487b;
   font-size: 40px;
 }

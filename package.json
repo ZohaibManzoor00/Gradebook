@@ -1,7 +1,7 @@
 {
   "name": "gradebook",
   "version": "1.0.0",
-  "description": "- Gradebook is a grade keeping app that allows staff and teachers to create, update, and delete student grades. The staff login allows for these operations while student logins only display their grades. Staff/admins have their own log in and students have their own.",
+  "description": "- Grade Easy is a grade keeping app that allows staff and teachers to create, update, and delete student grades. The staff login allows for these operations while student logins only display their grades. Staff/admins have their own log in and students have their own.",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",

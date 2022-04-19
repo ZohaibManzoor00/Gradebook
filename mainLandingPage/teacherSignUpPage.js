@@ -1,6 +1,5 @@
 window.addEventListener("DOMContentLoaded", (e) => {
 const form = document.getElementById('register');
-console.log(form)
 form.addEventListener("submit", (event) => {
     event.preventDefault()
     const username = document.getElementById('username').value;
