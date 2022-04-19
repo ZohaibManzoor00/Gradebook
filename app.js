@@ -93,6 +93,8 @@ app.post('/students', async (req, res) => {
 
 app.post('/grades', async (req, res) => {
     const { studentId, assignmentId, newGrade } = req.body
+    if (newGrade === 'undefined') newGrade = 0
+    if (newGrade === undefined) newGrade = 0
     if (newGrade && assignmentId && studentId) {
         const query = await db('grades').insert({
             student_id: studentId,
