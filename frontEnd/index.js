@@ -162,7 +162,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     loadingIndicator.innerText = 'Loading';
                     loadingIndicator.style.color = '#198754'
 
-                    if (value) {
+                    if (value !== '') {
                         fetch(`http://localhost:3031/grades`, {
                             method: 'POST',
                             body: JSON.stringify({
