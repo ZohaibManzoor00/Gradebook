@@ -304,6 +304,9 @@ window.addEventListener('DOMContentLoaded', () => {
     // const btn6 = document.getElementById('btn')
     const span6 = document.getElementsByClassName('close6')[0]
 
+    const modal7 = document.getElementById('help-button')
+    const span7 = document.getElementsByClassName('close7')[0]
+
     btn1.onclick = function () {
         modal1.style.display = 'block';
     }
@@ -345,6 +348,9 @@ window.addEventListener('DOMContentLoaded', () => {
     span6.onclick = function () {
         modal6.style.display = 'none';
     }
+    span7.onclick = function () {
+        modal7.style.display = 'none';
+    }
 
     window.onclick = function (event) {
         if (event.target === modal1) {
@@ -364,6 +370,9 @@ window.addEventListener('DOMContentLoaded', () => {
         }
         if (event.target === modal6) {
             modal6.style.display = 'none'
+        }
+        if (event.target === modal7) {
+            modal7.style.display = 'none'
         }
     }
 
@@ -413,4 +422,19 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         }).then(res => res.json()).then(data => location.assign('./index.html'))
     })
+    const need = document.getElementById('help')
+    need.addEventListener('click', e => {
+        // const instructions = document.getElementById('add-instructions')
+        // const firstH3 = document.createElement('h3')
+        // firstH3.innerText = 'Select a cell to update grade'
+        // instructions.appendChild(firstH3)
+        const modal7 = document.getElementById('help-button')
+        modal7.style.display = 'block';
+        const helpBtn1 = document.getElementById('helpBtn1')
+        const helpBtn2 = document.getElementById('helpBtn2')
+        helpBtn1.innerText = 'Select a cell to update grade'
+        helpBtn2.innerText = "Click on a student's name to get average grade"
+
+    })
 })
+

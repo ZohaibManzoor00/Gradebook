@@ -62,6 +62,7 @@ td {
   width: 80%; 
 }
 
+.close7,
 .close6,
 .close5,
 .close4,
@@ -111,6 +112,13 @@ td {
 
 .close6:hover, 
 .close6:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.close7:hover, 
+.close7:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
@@ -245,6 +253,12 @@ th {
   
 }
 
+#helpBtn1 {
+  padding-bottom: 20px;
+}
+
+#helpBtn1,
+#helpBtn2,
 .instructions {
   display: flex;
   justify-content: center;
@@ -255,4 +269,6 @@ th {
   display: flex;
   justify-content: end;
   padding-right: 50px;
+  cursor: pointer;
 }
+
