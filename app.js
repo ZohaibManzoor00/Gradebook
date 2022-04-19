@@ -14,6 +14,29 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
+app.post('/register', async (req, res) => {
+    const username = req.body.username
+    const password = req.body.password
+    const query = await db('teachers').insert({
+        username,password
+    }).returning([
+        'id', 'username', 'password'
+    ])
+    res.json(query)
+})
+
+app.post('/login', async (req, res) => {
+    const username = req.body.username
+    const password = req.body.password
+    const user = await db.select().from("teachers").where({username});
+    console.log(user[0].password)
+    if (user[0].password === password) {
+        return res.status(201).json('Success')
+    } else {
+        return res.status(404).json('Incorrect Password')
+    }
+})
+
 app.get('/assignments', async (req, res) => {
     const query = await db.select().from('assignments').orderBy('start_date')
     res.json(query)
@@ -99,6 +122,8 @@ app.get('/:id', async (req, res) => {
     const query = await db('grades').avg('grade').where('student_id', id)
     res.json(query)
 })
+
+
 
 app.listen(PORT, () => {
     console.log(`App initialized on http://localhost:${PORT}`)
