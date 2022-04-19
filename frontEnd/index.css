@@ -177,7 +177,7 @@ td {
   text-align: center;
   transition: all 0.2s;
   cursor: pointer;
-  background-color: #31af3c;
+  background-color: #2aa734;
 }
 
 #edit{
@@ -231,7 +231,7 @@ td {
   text-align: center;
   transition: all 0.2s;
   cursor: pointer;
-  background-color: #31af3c;
+  background-color: #2aa734;
 }
 
 #studentAvg:hover {
@@ -276,7 +276,7 @@ td {
 }
 
 .welcome {
-  /* margin-top: 50px; */
+  margin-top: -20px;
   margin-left: 40px;
   font-family: 'Lobster', cursive;;
   color: #29487b;
